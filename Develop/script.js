@@ -20,8 +20,9 @@ function passPrompt(passwordCriteria) {
   return passwordCriteria;
 }
 
-function passLengthPrompt() {
-  
+function passLengthPrompt(passLength) {
+  passLength = window.prompt("How long would like your password to be? (Please enter a number from 8 to 16");
+  return passLength;
 }
 
 function generatePassword() {
