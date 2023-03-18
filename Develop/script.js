@@ -21,8 +21,18 @@ function passPrompt(passwordCriteria) {
 }
 
 function passLengthPrompt(passLength) {
-  passLength = window.prompt("How long would like your password to be? (Please enter a number from 8 to 16");
+  passLength = window.prompt("How long would like your password to be? (Please enter a number from 8 to 128");
   return passLength;
+}
+
+function lengthValidator() {
+  var validLength;
+  if (passLengthPrompt() >= 8 && passLengthPrompt() <= 128) {
+    validLength = true;
+  } else {
+    validLength = false;
+  }
+  return validLength;
 }
 
 function generatePassword() {
