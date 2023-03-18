@@ -27,7 +27,8 @@ function passLengthPrompt(passLength) {
 
 function lengthValidator() {
   var validLength;
-  if (passLengthPrompt() >= 8 && passLengthPrompt() <= 128) {
+  var length = passLengthPrompt();
+  if (length >= 8 && length <= 128) {
     validLength = true;
   } else {
     validLength = false;
@@ -35,9 +36,6 @@ function lengthValidator() {
   return validLength;
 }
 
-function generatePassword() {
-  
-}
 
 // Write password to the #password input
 function writePassword() {
