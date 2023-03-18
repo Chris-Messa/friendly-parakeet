@@ -24,7 +24,7 @@ function passLengthPrompt(passLength) {
   passLength = window.prompt("How long would like your password to be? (Please enter a number from 8 to 128");
   return passLength;
 }
-
+//test
 function addLower() {
   var critList = [];
   if (lengthValidator()) {
