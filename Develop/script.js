@@ -41,6 +41,16 @@ function addSpecial() {
   var specialList = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "/"];
 }
 
+function addCriteria(criteria) {
+  criteria = [];
+  var promptAnswer = passPrompt();
+  console.log(criteria.concat(addLower()));
+  // if (promptAnswer[0] === "YES") {
+  //   criteria.concat(addLower());
+  // }
+  // return criteria;
+}
+
 function lengthValidator() {
   var validLength;
   var length = passLengthPrompt();
