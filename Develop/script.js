@@ -26,25 +26,11 @@ function passLengthPrompt(passLength) {
 }
 //test
 function addLower() {
-  var critList = [];
-  if (lengthValidator()) {
-    var criteria = passPrompt();
-
-    if (criteria[0] === "YES") {
-      
-      critList.push("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
-    } 
-    // if (criteria[1] === "YES") {
-
-    //   critList.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
-    // } 
-  }
+ var lowerList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 }
 
 function addUpper() {
-  var upperList = [];
-  upperList.push("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z");
-  console.log(upperList);
+  var upperList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 }
 
 function lengthValidator() {
