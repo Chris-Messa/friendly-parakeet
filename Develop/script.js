@@ -25,20 +25,24 @@ function passLengthPrompt(passLength) {
   return passLength;
 }
 //test
-function addLower() {
- var lowerList = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+function addLower(list) {
+ list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+ return list;
 }
 
-function addUpper() {
-  var upperList = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+function addUpper(list) {
+  list = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  return list;
 }
 
-function addNumeric() {
-  var numericList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+function addNumeric(list) {
+  list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  return list;
 }
 
-function addSpecial() {
-  var specialList = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "/"];
+function addSpecial(list) {
+  list = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "/"];
+  return list;
 }
 
 function lengthValidator() {
