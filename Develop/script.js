@@ -4,6 +4,8 @@
 var generateBtn = document.querySelector("#generate");
 var critList = ["Lowercase letters", "Uppercase letters", "Numeric", "Special characters"];
 
+
+
 // Ask user for their criteria, array with answers is returned 
 function passPrompt(passwordCriteria) {
   var critAns = []; 
@@ -13,8 +15,13 @@ function passPrompt(passwordCriteria) {
      critAns.push((window.prompt(`Do you want to include ${critList[i]}?`)));
   }
 
-  passwordCriteria = critAns;
+  //Credit: https://www.designcise.com/web/tutorial/how-to-convert-a-javascript-array-of-strings-to-uppercase
+  passwordCriteria = critAns.map((str) => str.toUpperCase());
   return passwordCriteria;
+}
+
+function passLengthPrompt() {
+  
 }
 
 function generatePassword() {
