@@ -2,15 +2,18 @@
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
+var critList = ["Lowercase letters", "Uppercase letters", "Numeric", "Special characters"];
 
+// Ask user for their criteria, array with answers is returned 
 function passPrompt(passwordCriteria) {
-  var critList = ["Lowercase letters", "Uppercase letters", "Numeric", "Special characters"];
+  var critAns = []; 
 
   for (var i = 0; i < critList.length; i++) {
-    window.prompt(`Do you want to include ${critList[i]}?`);
+ 
+     critAns.push((window.prompt(`Do you want to include ${critList[i]}?`)));
   }
 
-
+  passwordCriteria = critAns;
   return passwordCriteria;
 }
 
