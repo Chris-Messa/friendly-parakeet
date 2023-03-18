@@ -48,7 +48,19 @@ function addLower(list) {
 function addCriteria(criteria) {
   criteria = [];
   var promptAnswer = passPrompt();
-  console.log(criteria.concat(addLower()));
+  if (promptAnswer[0] === "YES") {
+    criteria = criteria.concat(addLower());
+  } 
+  if (promptAnswer[1] === "YES") {
+    criteria = criteria.concat(addUpper()); 
+  }
+  if (promptAnswer[2] === "YES") {
+    criteria = criteria.concat(addNumeric()); 
+  }
+  if (promptAnswer[3] === "YES") {
+    criteria = criteria.concat(addSpecial()); 
+  }
+   return criteria;
 }
 
 function lengthValidator() {
