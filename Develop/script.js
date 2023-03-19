@@ -74,6 +74,13 @@ function lengthValidator() {
   return validLength;
 }
 
+function generatePassword() {
+  if (lengthValidator()) {
+    console.log("valid");
+  } else {
+    window.alert("Please enter valid number!");
+  }
+}
 
 // Write password to the #password input
 function writePassword() {
