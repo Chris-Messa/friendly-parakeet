@@ -3,8 +3,7 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 var critList = ["Lowercase letters", "Uppercase letters", "Numeric", "Special characters"];
-
-
+var passLength;
 
 // Ask user for their criteria, array with answers is returned 
 function passPrompt(passwordCriteria) {
@@ -20,11 +19,12 @@ function passPrompt(passwordCriteria) {
   return passwordCriteria;
 }
 
-function passLengthPrompt(passLength) {
-  passLength = window.prompt("How long would like your password to be? (Please enter a number from 8 to 128");
-  return passLength;
-}
+// passLengthValue(passLength)
+
+
+
 //test
+
 function addLower(list) {
  list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
  return list;
@@ -64,9 +64,8 @@ function addCriteria(criteria) {
 }
 
 function lengthValidator() {
-  var validLength;
-  var length = passLengthPrompt();
-  if (length >= 8 && length <= 128) {
+  passLength = window.prompt("Enter a number between 8 and 128");
+  if (passLength >= 8 && passLength <= 128) {
     validLength = true;
   } else {
     validLength = false;
@@ -76,10 +75,18 @@ function lengthValidator() {
 
 function generatePassword() {
   if (lengthValidator()) {
+    var pw = [];
     console.log("valid");
+    var selectedCriteria = addCriteria();
+    for (var i = 0; i < passLength; i++) {
+    pw.push(selectedCriteria[Math.floor(Math.random()* selectedCriteria.length)]);
+    }
+    // var generatedPassword = selectedCriteria[Math.floor(Math.random()*passLength.length)];
+    // console.log(generatedPassword);
   } else {
     window.alert("Please enter valid number!");
   }
+  return pw;
 }
 
 // Write password to the #password input
