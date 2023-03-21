@@ -10,9 +10,8 @@ function passPrompt(passwordCriteria) {
   let critList = ["Lowercase letters", "Uppercase letters", "Numeric", "Special characters"];
   let critAns = []; 
 
-  for (let i = 0; i < critList.length; i++) {
- 
-     critAns.push((window.prompt(`Do you want to include ${critList[i]}? Please say "yes" or "no"`)));
+  for (let ans of critList) {
+     critAns.push((window.prompt(`Do you want to include ${ans}? Please say "yes" or "no"`)));
   }
 
   //Credit: https://www.designcise.com/web/tutorial/how-to-convert-a-javascript-array-of-strings-to-uppercase
@@ -32,27 +31,31 @@ function addChars() {
   }
   let promptAnswer = passPrompt();
   let addedChars = [];
-  if (promptAnswer[0] === "YES") {
+   if ((promptAnswer[0] === "NO") && (promptAnswer[1] === "NO") && (promptAnswer[2] === "NO") && (promptAnswer[3] === "NO")) {
+      window.alert("Please select at least one criteria!")
+   } else { 
+    if (promptAnswer[0] === "YES") {
     addedChars = addedChars.concat(chars.lowerChars)  
-  } else if (promptAnswer[0] === "NO") {
-    window.alert(`Lower characters not added`);
-  }
+    } else if (promptAnswer[0] === "NO") {
+      window.alert(`Lower characters not added`);
+    }
 
-  if (promptAnswer[1] === "YES") {
-    addedChars = addedChars.concat(chars.upperChars);
-  } else if (promptAnswer[1] === "NO") {
-    window.alert(`Upper characters not added`);
-  }
-  if (promptAnswer[2] === "YES") {
-    addedChars = addedChars.concat(chars.numberChars);
-  } else if (promptAnswer[2] === "NO") {
-    window.alert(`Number characters not added`);
-  }
-  if (promptAnswer[3] === "YES") {
-    addedChars = addedChars.concat(chars.specialChars);
-  } else if (promptAnswer[3] === "NO") {
-    window.alert(`Special characters not added`);
-  }
+    if (promptAnswer[1] === "YES") {
+      addedChars = addedChars.concat(chars.upperChars);
+    } else if (promptAnswer[1] === "NO") {
+      window.alert(`Upper characters not added`);
+    }
+    if (promptAnswer[2] === "YES") {
+      addedChars = addedChars.concat(chars.numberChars);
+    } else if (promptAnswer[2] === "NO") {
+      window.alert(`Number characters not added`);
+    }
+    if (promptAnswer[3] === "YES") {
+      addedChars = addedChars.concat(chars.specialChars);
+    } else if (promptAnswer[3] === "NO") {
+      window.alert(`Special characters not added`);
+    } 
+}
 
   addedChars = addedChars.join("");
   return addedChars;
