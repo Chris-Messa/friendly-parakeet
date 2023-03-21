@@ -25,42 +25,39 @@ function passPrompt(passwordCriteria) {
 
 //test
 
-function addLower(list) {
-  list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  return list;
-}
-
-function addUpper(list) {
-  list = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  return list;
-}
-
-function addNumeric(list) {
-  list = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  return list;
-}
-
-function addSpecial(list) {
-  list = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "/", "[", "]", ":", ">", "<", "|", "?", "~", ];
-  return list;
-}
-
-function addCriteria(criteria) {
-  criteria = [];
+function addChars() {
+  let chars = {
+    lowerChars: "abcdefghijklmnopqrstuvwxyz",
+    upperChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    numberChars: "0123456789",
+    specialChars:"!@#$%^&*()-+/[]:><|?~"
+  }
   var promptAnswer = passPrompt();
+  var addedChars = [];
   if (promptAnswer[0] === "YES") {
-    criteria = criteria.concat(addLower());
-  } 
+    addedChars = addedChars.concat(chars.lowerChars)  
+  } else if (promptAnswer[0] === "NO") {
+    window.alert(`Lower characters not added`);
+  }
+
   if (promptAnswer[1] === "YES") {
-    criteria = criteria.concat(addUpper()); 
+    addedChars = addedChars.concat(chars.upperChars);
+  } else if (promptAnswer[1] === "NO") {
+    window.alert(`Upper characters not added`);
   }
   if (promptAnswer[2] === "YES") {
-    criteria = criteria.concat(addNumeric()); 
+    addedChars = addedChars.concat(chars.numberChars);
+  } else if (promptAnswer[2] === "NO") {
+    window.alert(`Number characters not added`);
   }
   if (promptAnswer[3] === "YES") {
-    criteria = criteria.concat(addSpecial()); 
+    addedChars = addedChars.concat(chars.specialChars);
+  } else if (promptAnswer[3] === "NO") {
+    window.alert(`Special characters not added`);
   }
-   return criteria;
+
+  addedChars = addedChars.join("");
+  
 }
 
 function lengthValidator() {
@@ -77,7 +74,7 @@ function generatePassword() {
   if (lengthValidator()) {
     var pw = [];
     console.log("valid");
-    var selectedCriteria = addCriteria();
+    var selectedCriteria = addChars();
     for (var i = 0; i < passLength; i++) {
     pw.push(selectedCriteria[Math.floor(Math.random()* selectedCriteria.length)]);
     }
