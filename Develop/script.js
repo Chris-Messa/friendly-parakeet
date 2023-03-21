@@ -1,6 +1,8 @@
 // Assignment code here
 
-function init() {// Get references to the #generate element
+function init() {
+
+  // Get references to the #generate element
 const generateBtn = document.querySelector("#generate");
 
 let passLength;
@@ -19,17 +21,15 @@ function passPrompt(passwordCriteria) {
   return passwordCriteria;
 }
 
-// passLengthValue(passLength)
-
-
+// Adds characters to the users criteria based on answers given in @passPrompt()
 function addChars() {
-  let chars = {
+  const chars = {
     lowerChars: "abcdefghijklmnopqrstuvwxyz",
     upperChars: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     numberChars: "0123456789",
     specialChars:"!@#$%^&*()-+/[]:><|?~"
   }
-  let promptAnswer = passPrompt();
+  const promptAnswer = passPrompt();
   let addedChars = [];
    if ((promptAnswer[0] === "NO") && (promptAnswer[1] === "NO") && (promptAnswer[2] === "NO") && (promptAnswer[3] === "NO")) {
       window.alert("Please select at least one criteria!")
@@ -71,6 +71,7 @@ function lengthValidator() {
   return validLength;
 }
 
+// Creates the password 
 function generatePassword() {
   let passwordArray = [];
   if (lengthValidator()) {
@@ -88,8 +89,8 @@ function generatePassword() {
 
 // Write password to the #password input
 function writePassword() {
-  let password = generatePassword();
-  let passwordText = document.querySelector("#password");
+  const password = generatePassword();
+  const passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
