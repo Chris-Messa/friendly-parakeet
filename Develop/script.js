@@ -1,7 +1,7 @@
 // Assignment code here
 
-// Get references to the #generate element
-let generateBtn = document.querySelector("#generate");
+function init() {// Get references to the #generate element
+const generateBtn = document.querySelector("#generate");
 
 let passLength;
 
@@ -11,7 +11,7 @@ function passPrompt(passwordCriteria) {
   let critAns = []; 
 
   for (let ans of critList) {
-     critAns.push((window.prompt(`Do you want to include ${ans}? Please say "yes" or "no"`)));
+     critAns.push((window.prompt(`Do you want to include ${ans}? Please say "yes" or "no" (case insensitive)`)));
   }
 
   //Credit: https://www.designcise.com/web/tutorial/how-to-convert-a-javascript-array-of-strings-to-uppercase
@@ -34,28 +34,27 @@ function addChars() {
    if ((promptAnswer[0] === "NO") && (promptAnswer[1] === "NO") && (promptAnswer[2] === "NO") && (promptAnswer[3] === "NO")) {
       window.alert("Please select at least one criteria!")
    } else { 
-    if (promptAnswer[0] === "YES") {
-    addedChars = addedChars.concat(chars.lowerChars)  
-    } else if (promptAnswer[0] === "NO") {
-      window.alert(`Lower characters not added`);
+      if (promptAnswer[0] === "YES") {
+      addedChars = addedChars.concat(chars.lowerChars)  
+      } else if (promptAnswer[0] === "NO") {
+        window.alert(`Lower characters not added`);
+      }
+      if (promptAnswer[1] === "YES") {
+        addedChars = addedChars.concat(chars.upperChars);
+      } else if (promptAnswer[1] === "NO") {
+        window.alert(`Upper characters not added`);
+      }
+      if (promptAnswer[2] === "YES") {
+        addedChars = addedChars.concat(chars.numberChars);
+      } else if (promptAnswer[2] === "NO") {
+        window.alert(`Number characters not added`);
+      }
+      if (promptAnswer[3] === "YES") {
+        addedChars = addedChars.concat(chars.specialChars);
+      } else if (promptAnswer[3] === "NO") {
+        window.alert(`Special characters not added`);
+      } 
     }
-
-    if (promptAnswer[1] === "YES") {
-      addedChars = addedChars.concat(chars.upperChars);
-    } else if (promptAnswer[1] === "NO") {
-      window.alert(`Upper characters not added`);
-    }
-    if (promptAnswer[2] === "YES") {
-      addedChars = addedChars.concat(chars.numberChars);
-    } else if (promptAnswer[2] === "NO") {
-      window.alert(`Number characters not added`);
-    }
-    if (promptAnswer[3] === "YES") {
-      addedChars = addedChars.concat(chars.specialChars);
-    } else if (promptAnswer[3] === "NO") {
-      window.alert(`Special characters not added`);
-    } 
-}
 
   addedChars = addedChars.join("");
   return addedChars;
@@ -98,3 +97,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+}
+
+init();
