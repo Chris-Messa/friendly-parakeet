@@ -1,15 +1,16 @@
 // Assignment code here
 
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-var critList = ["Lowercase letters", "Uppercase letters", "Numeric", "Special characters"];
-var passLength;
+let generateBtn = document.querySelector("#generate");
+
+let passLength;
 
 // Ask user for their criteria, array with answers is returned 
 function passPrompt(passwordCriteria) {
-  var critAns = []; 
+  let critList = ["Lowercase letters", "Uppercase letters", "Numeric", "Special characters"];
+  let critAns = []; 
 
-  for (var i = 0; i < critList.length; i++) {
+  for (let i = 0; i < critList.length; i++) {
  
      critAns.push((window.prompt(`Do you want to include ${critList[i]}? Please say "yes" or "no"`)));
   }
@@ -22,9 +23,6 @@ function passPrompt(passwordCriteria) {
 // passLengthValue(passLength)
 
 
-
-//test
-
 function addChars() {
   let chars = {
     lowerChars: "abcdefghijklmnopqrstuvwxyz",
@@ -32,8 +30,8 @@ function addChars() {
     numberChars: "0123456789",
     specialChars:"!@#$%^&*()-+/[]:><|?~"
   }
-  var promptAnswer = passPrompt();
-  var addedChars = [];
+  let promptAnswer = passPrompt();
+  let addedChars = [];
   if (promptAnswer[0] === "YES") {
     addedChars = addedChars.concat(chars.lowerChars)  
   } else if (promptAnswer[0] === "NO") {
@@ -57,9 +55,10 @@ function addChars() {
   }
 
   addedChars = addedChars.join("");
-  
+  return addedChars;
 }
 
+// Determines if a user chose a valid length for password
 function lengthValidator() {
   passLength = window.prompt("Enter a number between 8 and 128");
   if (passLength >= 8 && passLength <= 128) {
@@ -71,24 +70,24 @@ function lengthValidator() {
 }
 
 function generatePassword() {
+  let passwordArray = [];
   if (lengthValidator()) {
-    var pw = [];
-    console.log("valid");
-    var selectedCriteria = addChars();
-    for (var i = 0; i < passLength; i++) {
-    pw.push(selectedCriteria[Math.floor(Math.random()* selectedCriteria.length)]);
+    
+    let selectedCriteria = addChars();
+    for (let i = 0; i < passLength; i++) {
+    passwordArray.push(selectedCriteria[Math.floor(Math.random()* selectedCriteria.length)]);
     }
 
   } else {
     window.alert("Please enter valid number!");
   }
-  return pw.join("");
+  return passwordArray.join("");
 }
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
