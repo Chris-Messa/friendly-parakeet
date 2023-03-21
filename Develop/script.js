@@ -11,7 +11,7 @@ function passPrompt(passwordCriteria) {
 
   for (var i = 0; i < critList.length; i++) {
  
-     critAns.push((window.prompt(`Do you want to include ${critList[i]}?`)));
+     critAns.push((window.prompt(`Do you want to include ${critList[i]}? Please say "yes" or "no"`)));
   }
 
   //Credit: https://www.designcise.com/web/tutorial/how-to-convert-a-javascript-array-of-strings-to-uppercase
@@ -26,8 +26,8 @@ function passPrompt(passwordCriteria) {
 //test
 
 function addLower(list) {
- list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
- return list;
+  list = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  return list;
 }
 
 function addUpper(list) {
@@ -41,7 +41,7 @@ function addNumeric(list) {
 }
 
 function addSpecial(list) {
-  list = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "/"];
+  list = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "+", "/", "[", "]", ":", ">", "<", "|", "?", "~", ];
   return list;
 }
 
@@ -81,12 +81,11 @@ function generatePassword() {
     for (var i = 0; i < passLength; i++) {
     pw.push(selectedCriteria[Math.floor(Math.random()* selectedCriteria.length)]);
     }
-    // var generatedPassword = selectedCriteria[Math.floor(Math.random()*passLength.length)];
-    // console.log(generatedPassword);
+
   } else {
     window.alert("Please enter valid number!");
   }
-  return pw;
+  return pw.join("");
 }
 
 // Write password to the #password input
