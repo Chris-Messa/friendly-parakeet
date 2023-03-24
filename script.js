@@ -35,7 +35,7 @@ function addChars() {
       window.alert("Please select at least one criteria!")
    } else { 
       if (promptAnswer[0] === "YES") {
-      addedChars = addedChars.concat(chars.lowerChars)  
+      addedChars = addedChars.concat(chars.lowerChars);  
       } else if (promptAnswer[0] === "NO") {
         window.alert(`Lower characters not added`);
       }
