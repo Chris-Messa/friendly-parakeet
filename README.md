@@ -17,3 +17,5 @@ When the user selects their criteria, a random password of the chosen length wil
 ## Usage
 
 To use this application, the user will first click the "Generate Password" button. Then, the user must choose either "yes" or "no" to select their criteria. Once the user has selected criteria, the password will be displayed in the dotted box.
+
+Link to live application: https://chris-messa.github.io/random-password-generator/
